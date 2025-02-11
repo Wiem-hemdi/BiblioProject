@@ -40,9 +40,10 @@
             buttonAjouter = new Button();
             buttonModifier = new Button();
             buttonSupprimer = new Button();
+            textBoxRecherche = new TextBox();
             buttonRechercher = new Button();
             flowLayoutPanel2 = new FlowLayoutPanel();
-            buttonTrierParNom = new Button();
+            buttonTrier = new Button();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             groupBoxEtudiant.SuspendLayout();
@@ -170,6 +171,7 @@
             flowLayoutPanel1.Controls.Add(buttonAjouter);
             flowLayoutPanel1.Controls.Add(buttonModifier);
             flowLayoutPanel1.Controls.Add(buttonSupprimer);
+            flowLayoutPanel1.Controls.Add(textBoxRecherche);
             flowLayoutPanel1.Controls.Add(buttonRechercher);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(4, 4);
@@ -231,6 +233,14 @@
             buttonSupprimer.UseVisualStyleBackColor = true;
             buttonSupprimer.Click += buttonSupprimer_Click;
             // 
+            // textBoxRecherche
+            // 
+            textBoxRecherche.Location = new Point(488, 15);
+            textBoxRecherche.Margin = new Padding(3, 15, 3, 3);
+            textBoxRecherche.Name = "textBoxRecherche";
+            textBoxRecherche.Size = new Size(289, 34);
+            textBoxRecherche.TabIndex = 4;
+            // 
             // buttonRechercher
             // 
             buttonRechercher.AutoSize = true;
@@ -239,7 +249,7 @@
             buttonRechercher.Font = new Font("Segoe UI", 12.1008406F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonRechercher.Image = Properties.Resources.spyglass_icon;
             buttonRechercher.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonRechercher.Location = new Point(488, 3);
+            buttonRechercher.Location = new Point(783, 3);
             buttonRechercher.Name = "buttonRechercher";
             buttonRechercher.Size = new Size(176, 54);
             buttonRechercher.TabIndex = 3;
@@ -250,7 +260,7 @@
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.Controls.Add(buttonTrierParNom);
+            flowLayoutPanel2.Controls.Add(buttonTrier);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel2.Location = new Point(4, 242);
@@ -259,21 +269,21 @@
             flowLayoutPanel2.Size = new Size(1092, 60);
             flowLayoutPanel2.TabIndex = 3;
             // 
-            // buttonTrierParNom
+            // buttonTrier
             // 
-            buttonTrierParNom.AutoSize = true;
-            buttonTrierParNom.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            buttonTrierParNom.Cursor = Cursors.Hand;
-            buttonTrierParNom.Image = Properties.Resources.arrow_double_up_icon;
-            buttonTrierParNom.Location = new Point(898, 4);
-            buttonTrierParNom.Margin = new Padding(4);
-            buttonTrierParNom.Name = "buttonTrierParNom";
-            buttonTrierParNom.Size = new Size(190, 54);
-            buttonTrierParNom.TabIndex = 11;
-            buttonTrierParNom.Text = "&Trier par Nom";
-            buttonTrierParNom.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonTrierParNom.UseVisualStyleBackColor = true;
-            buttonTrierParNom.Click += buttonTrierParNom_Click;
+            buttonTrier.AutoSize = true;
+            buttonTrier.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonTrier.Cursor = Cursors.Hand;
+            buttonTrier.Image = Properties.Resources.arrow_double_up_icon;
+            buttonTrier.Location = new Point(898, 4);
+            buttonTrier.Margin = new Padding(4);
+            buttonTrier.Name = "buttonTrier";
+            buttonTrier.Size = new Size(190, 54);
+            buttonTrier.TabIndex = 11;
+            buttonTrier.Text = "&Trier par Nom";
+            buttonTrier.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonTrier.UseVisualStyleBackColor = true;
+            buttonTrier.Click += buttonTrier_Click;
             // 
             // GestionEtudiantsForm
             // 
@@ -316,12 +326,13 @@
         private Label labelAge;
         private TextBox textBoxNom;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button buttonTrierParNom;
+        private Button buttonTrier;
         private Button buttonSupprimer;
         private Button buttonAjouter;
         private FlowLayoutPanel flowLayoutPanel2;
         private Button buttonModifier;
         private NumericUpDown numericUpDownAge;
         private Button buttonRechercher;
+        private TextBox textBoxRecherche;
     }
 }

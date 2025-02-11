@@ -11,28 +11,28 @@ namespace GestionEtudiant
 
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException("buttonAjouter_Click");
+            throw new System.NotImplementedException();
         }
 
         private void buttonModifier_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException("buttonModifier_Click");
+            throw new System.NotImplementedException();
         }
 
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException("buttonSupprimer_Click");
+            throw new System.NotImplementedException();
         }
 
         private void buttonRechercher_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException("buttonRechercher_Click");
+            throw new System.NotImplementedException();
         }
 
-        private void buttonTrierParNom_Click(object sender, EventArgs e)
+        private void buttonTrier_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException("buttonTrierParNom_Click");
+            throw new System.NotImplementedException();
         }
-
+        
     }
 }

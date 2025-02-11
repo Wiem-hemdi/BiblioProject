@@ -30,10 +30,10 @@ git clone https://TutorialSAID@dev.azure.com/TutorialSAID/Programmation%20.Net%2
 
        - `DataGridView` (nom : `dataGridView`).
 
-       - `TextBox` pour le nom (`textBoxNom`) .
+       - `TextBox` pour le nom (`textBoxNom`) et un autre pour la recherche (`textBoxRecherche`).
 	   - `NumericUpDown` l’âge (`numericUpDownAge`).
 
-       - Boutons : "Ajouter" (`buttonAjouter`), "Modifier" (`buttonModifier`), "Supprimer" (`buttonSupprimer`),"Rechercher" (`buttonRechercher`) et Trier par Nom" (`buttonTrierParNom`).  
+       - Boutons : "Ajouter" (`buttonAjouter`), "Modifier" (`buttonModifier`), "Supprimer" (`buttonSupprimer`),"Rechercher" (`buttonRechercher`) et Trier par Nom" (`buttonTrier`).  
 
 ---
 
@@ -48,12 +48,22 @@ public partial class GestionEtudiantsForm : Form
 
     public GestionEtudiantsForm()  
     {  
-        InitializeComponent();  
+        InitializeComponent(); 
+        ConfigurerDataGridView();
         InitialiserDonneesTest();  
         RafraichirGrille();  
     }  
 
     // --- Méthodes d'initialisation ---  
+
+    private void ConfigurerDataGridView()
+    {
+        // Création manuelle des colonnes
+        dataGridView.Columns.Add("Id", "ID");
+        dataGridView.Columns.Add("Nom", "Nom");
+        dataGridView.Columns.Add("Age", "Âge");
+    }
+
     private void InitialiserDonneesTest()  
     {  
         AjouterEtudiant("Alice", 20);  
@@ -295,7 +305,20 @@ public class Etudiant
 ```csharp  
 public partial class GestionEtudiantsForm : Form  
 {  
-    private List<Etudiant> _etudiants = new List<Etudiant>();  
+    private List<Etudiant> _etudiants = new List<Etudiant>();
+    
+    // --- Méthodes d'initialisation ---  on change seullement la méthode RafraichirGrille
+    private void RafraichirGrille()
+    {
+        dataGridView.Rows.Clear();
+        foreach (var etudiant in _etudiants)
+        {
+            if (etudiant != null)
+            {
+                dataGridView.Rows.Add(etudiant.Id, etudiant.Nom, etudiant.Age);
+            }
+        }
+    }
 
     // --- Méthodes CRUD ---  
     private void AjouterEtudiant(string nom, int age)  
