@@ -13,6 +13,8 @@ namespace GestionLivre.Data.Context
         public DbSet<Book> Books { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Loan> Loans { get; set; }
+        public DbSet<User> Users { get; set; }
+
 
         public LibraryContext() { }
 
@@ -55,6 +57,7 @@ namespace GestionLivre.Data.Context
                 // clear old data if force
                 if (force)
                 {
+                    
                     Loans.RemoveRange(Loans);
                     Books.RemoveRange(Books);
                     Members.RemoveRange(Members);
@@ -65,7 +68,11 @@ namespace GestionLivre.Data.Context
                     Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name='Members';");
                     Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name='Loans';");
                 }
-
+                Users.Add(new User
+                {
+                    Username = "admin",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123")
+                });
                 var book1 = new Book { Title = "C# in Depth", Author = "Jon Skeet", TotalCopies = 5, AvailableCopies = 5 };
                 var book2 = new Book { Title = "Clean Code", Author = "Robert C. Martin", TotalCopies = 3, AvailableCopies = 3 };
 

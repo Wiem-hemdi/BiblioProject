@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             pictureBox1 = new PictureBox();
             welcomelabel = new Label();
-            textBox1 = new TextBox();
+            txtUsername = new TextBox();
             labelUsername = new Label();
             label1 = new Label();
-            textBox2 = new TextBox();
-            buttonlogin = new Button();
+            txtPassword = new TextBox();
+            btnLogin = new Button();
+            lblError = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -48,7 +49,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // welcomelabel
             // 
@@ -61,12 +61,12 @@
             welcomelabel.TabIndex = 1;
             welcomelabel.Text = "Bienvenue  à votre bibliothèque en ligne!";
             // 
-            // textBox1
+            // txtUsername
             // 
-            textBox1.Location = new Point(40, 165);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(244, 27);
-            textBox1.TabIndex = 2;
+            txtUsername.Location = new Point(40, 165);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(244, 27);
+            txtUsername.TabIndex = 2;
             // 
             // labelUsername
             // 
@@ -90,32 +90,47 @@
             label1.TabIndex = 5;
             label1.Text = "Password :";
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(40, 248);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(244, 27);
-            textBox2.TabIndex = 4;
+            txtPassword.Location = new Point(40, 248);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(244, 27);
+            txtPassword.TabIndex = 4;
+            txtPassword.UseSystemPasswordChar = true;
             // 
-            // buttonlogin
+            // btnLogin
             // 
-            buttonlogin.Location = new Point(40, 306);
-            buttonlogin.Name = "buttonlogin";
-            buttonlogin.Size = new Size(94, 29);
-            buttonlogin.TabIndex = 6;
-            buttonlogin.Text = "Login";
-            buttonlogin.UseVisualStyleBackColor = true;
+            btnLogin.Location = new Point(40, 306);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(94, 29);
+            btnLogin.TabIndex = 6;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.Font = new Font("Segoe UI", 12F);
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(22, 413);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(275, 28);
+            lblError.TabIndex = 7;
+            lblError.Text = "Invalid username or password.";
+            lblError.Visible = false;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(buttonlogin);
+            Controls.Add(lblError);
+            Controls.Add(btnLogin);
             Controls.Add(label1);
-            Controls.Add(textBox2);
+            Controls.Add(txtPassword);
             Controls.Add(labelUsername);
-            Controls.Add(textBox1);
+            Controls.Add(txtUsername);
             Controls.Add(welcomelabel);
             Controls.Add(pictureBox1);
             Name = "LoginForm";
@@ -129,10 +144,11 @@
 
         private PictureBox pictureBox1;
         private Label welcomelabel;
-        private TextBox textBox1;
+        private TextBox txtUsername;
         private Label labelUsername;
         private Label label1;
-        private TextBox textBox2;
-        private Button buttonlogin;
+        private TextBox txtPassword;
+        private Button btnLogin;
+        private Label lblError;
     }
 }
