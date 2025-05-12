@@ -34,8 +34,10 @@ namespace GestionEtudiant
             if (_userRepo.ValidateLogin(username, password))
             {
                 // Authentification réussie : ouvrir GestionLivresForm
-                var gestionForm = new GestionLivresForm(_context);
-                gestionForm.Show();
+                //var gestionForm = new GestionLivresForm(_context);
+                //gestionForm.Show();
+                var LoanForm = new LoanForm(_context);
+                LoanForm.Show();
                 this.Hide();
             }
             else

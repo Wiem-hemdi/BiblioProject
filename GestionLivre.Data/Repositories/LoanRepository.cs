@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GestionLivre.Data.Context;
 using GestionLivre.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace GestionLivre.Data.Repositories
@@ -18,7 +19,13 @@ namespace GestionLivre.Data.Repositories
             _context = context;
         }
 
-        public IEnumerable<Loan> GetAll() => _context.Loans.ToList();
+        public IEnumerable<Loan> GetAllLoansWithDetails()
+        {
+            return _context.Loans
+                .Include(l => l.Book)   // Include related Book entity
+                .Include(l => l.Member) // Include related Member entity
+                .ToList();              // Execute the query and return the result
+        }
 
         public Loan GetById(int id) => _context.Loans.FirstOrDefault(l => l.Id == id);
 
