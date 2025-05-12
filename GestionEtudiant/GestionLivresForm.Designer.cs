@@ -211,7 +211,7 @@
             buttonAjouter.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             buttonAjouter.Cursor = Cursors.Hand;
             buttonAjouter.Font = new Font("Segoe UI", 12.1008406F, FontStyle.Bold);
-            buttonAjouter.Image = Properties.Resources.add_icon;
+            buttonAjouter.Image = GestionEtudiant.Properties.Resources.add_icon;
             buttonAjouter.ImageAlign = ContentAlignment.MiddleLeft;
             buttonAjouter.Location = new Point(4, 4);
             buttonAjouter.Margin = new Padding(4);
@@ -229,7 +229,7 @@
             buttonModifier.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             buttonModifier.Cursor = Cursors.Hand;
             buttonModifier.Font = new Font("Segoe UI", 12.1008406F, FontStyle.Bold);
-            buttonModifier.Image = Properties.Resources.pencil_small_icon;
+            buttonModifier.Image = GestionEtudiant.Properties.Resources.pencil_small_icon;
             buttonModifier.ImageAlign = ContentAlignment.MiddleLeft;
             buttonModifier.Location = new Point(157, 4);
             buttonModifier.Margin = new Padding(4);
@@ -272,7 +272,7 @@
             buttonRechercher.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             buttonRechercher.Cursor = Cursors.Hand;
             buttonRechercher.Font = new Font("Segoe UI", 12.1008406F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonRechercher.Image = Properties.Resources.spyglass_icon;
+            buttonRechercher.Image = GestionEtudiant.Properties.Resources.spyglass_icon;
             buttonRechercher.ImageAlign = ContentAlignment.MiddleLeft;
             buttonRechercher.Location = new Point(797, 3);
             buttonRechercher.Name = "buttonRechercher";
@@ -301,7 +301,7 @@
             buttonTrier.AutoSize = true;
             buttonTrier.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             buttonTrier.Cursor = Cursors.Hand;
-            buttonTrier.Image = Properties.Resources.arrow_double_up_icon;
+            buttonTrier.Image = GestionEtudiant.Properties.Resources.arrow_double_up_icon;
             buttonTrier.Location = new Point(890, 4);
             buttonTrier.Margin = new Padding(4);
             buttonTrier.Name = "buttonTrier";
