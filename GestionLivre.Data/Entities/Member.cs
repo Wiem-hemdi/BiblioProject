@@ -26,5 +26,6 @@ namespace GestionLivre.Data.Entities
         public DateTime SubscriptionDate { get; set; }
 
         public ICollection<Loan> Loans { get; set; }
+
     }
 }

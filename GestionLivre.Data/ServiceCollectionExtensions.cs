@@ -20,6 +20,8 @@ namespace GestionLivre.Data
             services.AddTransient<BookRepository>();
             services.AddTransient<MemberRepository>();
             services.AddTransient<LoanRepository>();
+            services.AddTransient<UserRepository>();
+
 
             return services;
         }

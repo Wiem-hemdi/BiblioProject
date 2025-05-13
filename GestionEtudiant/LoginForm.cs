@@ -11,19 +11,20 @@ using GestionLivre;
 using GestionLivre.Data.Context;
 using GestionLivre.Data.Repositories;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GestionEtudiant
 {
     public partial class LoginForm : Form
     {
         private readonly UserRepository _userRepo;
-        private readonly LibraryContext _context;
+        private readonly IServiceProvider _serviceProvider;
 
-        public LoginForm(LibraryContext context)
+        public LoginForm(UserRepository userRepo, IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            _context = context;
-            _userRepo = new UserRepository(_context);
+            _userRepo = userRepo;
+            _serviceProvider = serviceProvider;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -33,11 +34,8 @@ namespace GestionEtudiant
 
             if (_userRepo.ValidateLogin(username, password))
             {
-                // Authentification réussie : ouvrir GestionLivresForm
-                //var gestionForm = new GestionLivresForm(_context);
-                //gestionForm.Show();
-                var LoanForm = new LoanForm(_context);
-                LoanForm.Show();
+                var mainForm = _serviceProvider.GetRequiredService<MainForm>();
+                mainForm.Show();
                 this.Hide();
             }
             else

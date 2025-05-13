@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionLivresForm));
             tableLayoutPanel1 = new TableLayoutPanel();
             dataGridView = new DataGridView();
@@ -48,6 +49,7 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             buttonTrier = new Button();
             pictureBox1 = new PictureBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             groupBoxLivre.SuspendLayout();
@@ -321,6 +323,12 @@
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
             // GestionLivresForm
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -373,5 +381,6 @@
         private TextBox textBoxDisponible;
         private TextBox textBoxAuteur;
         private PictureBox pictureBox1;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -1,8 +1,10 @@
-using System;
+ï»¿using System;
 using System.Windows.Forms;
-using GestionEtudiant;
-using GestionLivre.Data.Context; // Make sure this is the correct namespace
+using Microsoft.Extensions.DependencyInjection;
+using GestionLivre.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using GestionEtudiant; // Make sure this namespace includes your ServiceCollectionExtensions and your forms
+using GestionLivre.Data;
 
 namespace GestionLivre
 {
@@ -13,11 +15,20 @@ namespace GestionLivre
         {
             ApplicationConfiguration.Initialize();
 
-            using var context = new LibraryContext();
-            context.Database.Migrate();
+            // Configure DI
+            var services = new ServiceCollection();
+            services.AddLibraryDataService();       // Registers DbContext + Repos
+            services.RegisterForms();               // Registers forms
+            services.ApplyLibraryMigrations();      // Apply EF migrations
+            var serviceProvider = services.BuildServiceProvider();
+
+            // Optional: Seed database
+            var context = serviceProvider.GetRequiredService<LibraryContext>();
             context.Seed(force: true);
 
-            Application.Run(new LoginForm(context)); // <- démarre avec le formulaire de connexion
+            // Launch login form
+            var loginForm = serviceProvider.GetRequiredService<LoginForm>();
+            Application.Run(loginForm);
         }
     }
 }
